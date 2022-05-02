@@ -47,10 +47,10 @@ const Home: NextPage = () => {
         // Let's write a scoring system!
         // Normal cards are worth their face value, but picture cards are minus twice their face value
 
-        // The rank of the card is Math.floor(card / 4)
+        // The rank of the card is Math.floor(card / 4) + 1
         let score = 0;
         hand.forEach(card => {
-            const rank = Math.floor(card / 4);
+            const rank = Math.floor(card / 4) + 1;
 
             if (rank > 10) {
                 score -= rank * 2;

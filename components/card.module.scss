@@ -3,10 +3,29 @@
     width: 100px;
     height: 150px;
     background: lightslategrey;
-    margin: 5px;
+    overflow: visible;
+    margin: 70px 5px 5px;
 }
 
 .text {
     display: block;
     margin: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    width: 80px;
+}
+
+.crown {
+    top: -120px !important;
+    width: 100px !important;
+    position: absolute;
+    z-index: 10;
+}
+
+.crownContainer {
+    height: 0;
+}
+
+.crownContainer span {
+    overflow: visible !important;
 }
