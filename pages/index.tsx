@@ -17,6 +17,8 @@ const Home: NextPage = () => {
     const [displayingWinner, setDisplayingWinner] = useState<boolean>(false);
 
     const deal = () => {
+        if (displayingWinner) return; // The game is over, don't deal any more cards
+
         const currentHand = player1Turn ? player1Hand : player2Hand;
 
         if (currentHand.length >= 5) return stand();
