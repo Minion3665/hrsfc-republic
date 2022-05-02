@@ -64,18 +64,21 @@ const Home: NextPage = () => {
         return score;
     };
 
+    const player1Score = calculateScoreForHand(player1Hand);
+    const player2Score = calculateScoreForHand(player2Hand);
+
     return (
         <div style={{padding: "20px"}}>
             <h1>Welcome to &quot;Republic&quot;</h1>
             <p>Republic is a game about avoiding the monarchy; draw cards to invite people to your republic but get negative points
             if you accidentally let in a royal</p>
-            <Hand score={calculateScoreForHand(player1Hand)} cards={player1Hand}/>
-            <Hand score={calculateScoreForHand(player2Hand)} cards={player2Hand}/>
+            <Hand score={player1Score} cards={player1Hand}/>
+            <Hand score={player2Score} cards={player2Hand}/>
             <br/><br/>
             <button onClick={deal}>Deal to player {player1Turn ? 1 : 2}</button>{' '}
             <button onClick={stand}>My kingdom is ready</button>
 
-            {displayingWinner && <h1>Player {calculateScoreForHand(player1Hand) < calculateScoreForHand(player2Hand) ? 2 : 1} wins!</h1>}
+            {displayingWinner && <h1>{player1Score > player2Score ? 'Player 1 wins!' : player1Score < player2Score ? 'Player 2 wins!' : 'It\'s a draw!'}</h1>}
         </div>
     )
 }
